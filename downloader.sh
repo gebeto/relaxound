@@ -15,7 +15,7 @@ curr_video_url=$(echo $last_video | jq -r .url)
 
 
 if [[ $last_video_title == $curr_video_title ]]; then
-	echo "Up to date."
+	echo "Already up to date."
 else
 	echo "Found new video!"
 	echo "Title: $curr_video_title"
