@@ -10,7 +10,6 @@ __pycache__/
 *.webm
 *.mp4
 .DS_Store
-.lock
 
 # Distribution / packaging
 .Python
