@@ -5,6 +5,12 @@ __pycache__/
 
 # C extensions
 *.so
+.trash
+*.mp3
+*.webm
+*.mp4
+.DS_Store
+.lock
 
 # Distribution / packaging
 .Python
