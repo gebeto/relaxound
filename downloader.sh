@@ -1,5 +1,7 @@
 # /bin/bash
 
+git pull
+
 # DUMP old data
 mkdir -p .trash
 mv *.mp3 .trash/ 2>/dev/null
@@ -20,4 +22,7 @@ else
 	echo "Downloading..."
 	youtube-dl -U $curr_video_url -x --audio-format mp3
 	echo $curr_video_title > .lock
+	git add .lock
+	git commit -m "Downloaded new track: $curr_video_title"
+	git push
 fi
