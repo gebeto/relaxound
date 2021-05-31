@@ -13,14 +13,18 @@ last_video=$(youtube-dl -j --flat-playlist --playlist-start 1 --playlist-end 1 "
 curr_video_title=$(echo $last_video | jq -r .title)
 curr_video_url=$(echo $last_video | jq -r .url)
 
-
 if [[ $last_video_title == $curr_video_title ]]; then
 	echo "Already up to date."
 else
-	echo "Found new video!"
-	echo "Title: $curr_video_title"
-	echo "Downloading..."
-	youtube-dl -U $curr_video_url -x --audio-format mp3
+	if [[ $@ == "native" ]]; then
+		echo "Found new video!"
+		echo "Title: $curr_video_title"
+		echo "Downloading..."
+		youtube-dl -U $curr_video_url -x --audio-format mp3
+	else
+		# echo "https://www.youtube.com/watch?v=$curr_video_url"
+		open "https://www.y2mate.com/ru/youtube-mp3/$curr_video_url"
+	fi
 	echo $curr_video_title > .lock
 	git add .lock
 	git commit -m "Downloaded new track: $curr_video_title"
