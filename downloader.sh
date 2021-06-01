@@ -33,7 +33,7 @@ if [[ $1 == "id" ]]; then
 fi
 
 
-# git pull
+git pull
 
 # DUMP old data
 mkdir -p .trash
@@ -61,10 +61,10 @@ else
 		# url=$(getUrl $curr_video_url)
 		# curl -o "$curr_video_title" $url
 	fi
-	# echo $curr_video_title > .lock
-	# git add .lock
-	# git commit -m "Downloaded new track: $curr_video_title"
-	# git push
-	# open .
+	echo $curr_video_title > .lock
+	git add .lock
+	git commit -m "Downloaded new track: $curr_video_title"
+	git push
+	open .
 fi
 
