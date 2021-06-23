@@ -65,6 +65,5 @@ else
 	git add .lock
 	git commit -m "Downloaded new track: $curr_video_title"
 	git push
-	open .
 fi
 
